@@ -46,6 +46,7 @@
             this.executeAsyncWithArgumentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.StatusText = new System.Windows.Forms.ToolStripStatusLabel();
+            this.setPythonWExePathToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TableLayout.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -83,12 +84,14 @@
             this.LbScriptList.BackColor = System.Drawing.SystemColors.Info;
             this.LbScriptList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.LbScriptList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LbScriptList.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LbScriptList.FormattingEnabled = true;
-            this.LbScriptList.ItemHeight = 25;
+            this.LbScriptList.ItemHeight = 33;
             this.LbScriptList.Location = new System.Drawing.Point(0, 0);
             this.LbScriptList.Name = "LbScriptList";
             this.LbScriptList.Size = new System.Drawing.Size(494, 747);
             this.LbScriptList.TabIndex = 0;
+            this.LbScriptList.SelectedIndexChanged += new System.EventHandler(this.LbScriptList_SelectedIndexChanged);
             this.LbScriptList.DoubleClick += new System.EventHandler(this.LbScriptList_DoubleClick);
             // 
             // panel2
@@ -103,10 +106,13 @@
             // 
             // RtbContentViewer
             // 
+            this.RtbContentViewer.BackColor = System.Drawing.Color.White;
             this.RtbContentViewer.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.RtbContentViewer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RtbContentViewer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RtbContentViewer.Location = new System.Drawing.Point(0, 0);
             this.RtbContentViewer.Name = "RtbContentViewer";
+            this.RtbContentViewer.ReadOnly = true;
             this.RtbContentViewer.Size = new System.Drawing.Size(813, 747);
             this.RtbContentViewer.TabIndex = 0;
             this.RtbContentViewer.Text = "";
@@ -127,7 +133,8 @@
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openDirectoryToolStripMenuItem,
-            this.exitToolStripMenuItem});
+            this.exitToolStripMenuItem,
+            this.setPythonWExePathToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(64, 38);
             this.fileToolStripMenuItem.Text = "&File";
@@ -137,12 +144,14 @@
             this.openDirectoryToolStripMenuItem.Name = "openDirectoryToolStripMenuItem";
             this.openDirectoryToolStripMenuItem.Size = new System.Drawing.Size(277, 38);
             this.openDirectoryToolStripMenuItem.Text = "&Open Directory";
+            this.openDirectoryToolStripMenuItem.Click += new System.EventHandler(this.openDirectoryToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(277, 38);
-            this.exitToolStripMenuItem.Text = "E&xit";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(341, 38);
+            this.exitToolStripMenuItem.Text = "Set PythonExe Path";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // executeToolStripMenuItem
             // 
@@ -162,12 +171,14 @@
             this.executeToolStripMenuItem1.Name = "executeToolStripMenuItem1";
             this.executeToolStripMenuItem1.Size = new System.Drawing.Size(441, 38);
             this.executeToolStripMenuItem1.Text = "Execute";
+            this.executeToolStripMenuItem1.Click += new System.EventHandler(this.executeToolStripMenuItem1_Click);
             // 
             // executeWithArgumentsToolStripMenuItem
             // 
             this.executeWithArgumentsToolStripMenuItem.Name = "executeWithArgumentsToolStripMenuItem";
             this.executeWithArgumentsToolStripMenuItem.Size = new System.Drawing.Size(441, 38);
             this.executeWithArgumentsToolStripMenuItem.Text = "Execute with Arguments";
+            this.executeWithArgumentsToolStripMenuItem.Click += new System.EventHandler(this.executeWithArgumentsToolStripMenuItem_Click);
             // 
             // executeScalarToolStripMenuItem
             // 
@@ -198,9 +209,9 @@
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.StatusText});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 755);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 756);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1319, 38);
+            this.statusStrip1.Size = new System.Drawing.Size(1319, 37);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -210,6 +221,13 @@
             this.StatusText.Name = "StatusText";
             this.StatusText.Size = new System.Drawing.Size(79, 33);
             this.StatusText.Text = "Ready";
+            // 
+            // setPythonWExePathToolStripMenuItem
+            // 
+            this.setPythonWExePathToolStripMenuItem.Name = "setPythonWExePathToolStripMenuItem";
+            this.setPythonWExePathToolStripMenuItem.Size = new System.Drawing.Size(341, 38);
+            this.setPythonWExePathToolStripMenuItem.Text = "Set PythonWExe Path";
+            this.setPythonWExePathToolStripMenuItem.Click += new System.EventHandler(this.setPythonWExePathToolStripMenuItem_Click);
             // 
             // ScriptExplorerUI
             // 
@@ -223,6 +241,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "ScriptExplorerUI";
             this.Text = "Script Explorer";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ScriptExplorerUI_FormClosing);
             this.Load += new System.EventHandler(this.ScriptExplorerUI_Load);
             this.TableLayout.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -256,6 +275,7 @@
         private System.Windows.Forms.ToolStripMenuItem executeAsyncWithArgumentsToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel StatusText;
+        private System.Windows.Forms.ToolStripMenuItem setPythonWExePathToolStripMenuItem;
     }
 }
 

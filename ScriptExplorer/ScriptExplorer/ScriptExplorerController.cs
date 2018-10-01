@@ -13,6 +13,11 @@ namespace ScriptExplorer.ScriptExplorer
     {
         ConfigurationProvider configurationProvider;
         ConfigurationType configuration;
+        List<string> allScriptFiles = new List<string>();
+
+        public string PythonExePath { get { return configuration.PythonExeDirectory; } set { configuration.PythonExeDirectory = value; } }
+
+        public string PythonWExePath { get { return configuration.PythonWExeDirectory; } set { configuration.PythonWExeDirectory = value; } }
 
         public ScriptExplorerController(ConfigurationProvider provider)
         {
@@ -21,6 +26,23 @@ namespace ScriptExplorer.ScriptExplorer
             configuration = configurationProvider.GetConfiguration();
 
             configuration = Sanitize(configuration);
+        }
+
+        public List<string> GetErrors()
+        {
+            List<string> errorList = new List<string>();
+
+            if (!File.Exists(configuration.PythonExeDirectory))
+            {
+                errorList.Add("PythonExe path not correct. App can't execute scripts");
+            }
+
+            if (!File.Exists(configuration.PythonWExeDirectory))
+            {
+                errorList.Add("PythonWExe path not correct. App can't execute non console scripts.");
+            }
+
+            return errorList;
         }
 
         private ConfigurationType Sanitize(ConfigurationType configuration)
@@ -40,7 +62,8 @@ namespace ScriptExplorer.ScriptExplorer
         {
             List<string> scriptFilesList = new List<string>();
 
-            foreach (var file in Directory.GetFiles(configuration.DirectoryPath))
+            allScriptFiles = Directory.GetFiles(configuration.DirectoryPath).ToList();
+            foreach (var file in allScriptFiles)
             {
                 if (IsPythonScript(file))
                 {
@@ -56,6 +79,11 @@ namespace ScriptExplorer.ScriptExplorer
         public void ExecuteScript(string scriptFilename, string arguments = "")
         {
             // Incomplete
+        }
+
+        public void SetNewDirectory(string selectedPath)
+        {
+            configuration.DirectoryPath = selectedPath;
         }
 
         public string ExecuteScriptScalar(string scriptFilename, string arguments = "")
@@ -95,6 +123,18 @@ namespace ScriptExplorer.ScriptExplorer
             if (Path.GetExtension(file) == ".py")
                 return true;
             return false;
+        }
+
+        public string ReadScriptFileContents(string selectedValue)
+        {
+            string result = "";
+            result = File.ReadAllText(GetPythonFilename(selectedValue));
+            return result;
+        }
+
+        private string GetPythonFilename(string selectedValue)
+        {
+            return Path.Combine(configuration.DirectoryPath, selectedValue + ".py");
         }
     }
 }

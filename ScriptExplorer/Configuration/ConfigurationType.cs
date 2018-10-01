@@ -9,5 +9,7 @@ namespace ScriptExplorer.Configuration
     public class ConfigurationType
     {
         public string DirectoryPath;
+        public string PythonExeDirectory;
+        public string PythonWExeDirectory;
     }
 }
