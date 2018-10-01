@@ -1,0 +1,13 @@
+C:\Users\pxaxa\source\repos\ScriptExplorer\ScriptExplorer\bin\Debug\ScriptExplorer.exe.config
+C:\Users\pxaxa\source\repos\ScriptExplorer\ScriptExplorer\bin\Debug\ScriptExplorer.exe
+C:\Users\pxaxa\source\repos\ScriptExplorer\ScriptExplorer\bin\Debug\ScriptExplorer.pdb
+C:\Users\pxaxa\source\repos\ScriptExplorer\ScriptExplorer\obj\Debug\ScriptExplorer.csprojResolveAssemblyReference.cache
+C:\Users\pxaxa\source\repos\ScriptExplorer\ScriptExplorer\obj\Debug\ScriptExplorer.Properties.Resources.resources
+C:\Users\pxaxa\source\repos\ScriptExplorer\ScriptExplorer\obj\Debug\ScriptExplorer.csproj.GenerateResource.Cache
+C:\Users\pxaxa\source\repos\ScriptExplorer\ScriptExplorer\obj\Debug\ScriptExplorer.csproj.CoreCompileInputs.cache
+C:\Users\pxaxa\source\repos\ScriptExplorer\ScriptExplorer\obj\Debug\ScriptExplorer.exe
+C:\Users\pxaxa\source\repos\ScriptExplorer\ScriptExplorer\obj\Debug\ScriptExplorer.pdb
+C:\Users\pxaxa\source\repos\ScriptExplorer\ScriptExplorer\obj\Debug\ScriptExplorer.ScriptExplorerUI.resources
+C:\Users\pxaxa\source\repos\ScriptExplorer\bin\Debug\ScriptExplorer.exe.config
+C:\Users\pxaxa\source\repos\ScriptExplorer\bin\Debug\ScriptExplorer.exe
+C:\Users\pxaxa\source\repos\ScriptExplorer\bin\Debug\ScriptExplorer.pdb
