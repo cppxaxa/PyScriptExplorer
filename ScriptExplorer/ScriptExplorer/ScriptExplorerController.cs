@@ -53,18 +53,18 @@ namespace ScriptExplorer.ScriptExplorer
 
 
 
-        public void ExecuteScript(string scriptFilename, string arguments)
+        public void ExecuteScript(string scriptFilename, string arguments = "")
         {
             // Incomplete
         }
 
-        public string ExecuteScriptScalar(string scriptFilename, string arguments)
+        public string ExecuteScriptScalar(string scriptFilename, string arguments = "")
         {
             // Incomplete
             return null;
         }
 
-        public void ExecuteScriptAsync(string scriptFilename, string arguments)
+        public void ExecuteScriptAsync(string scriptFilename, string arguments = "")
         {
             // Incomplete
         }

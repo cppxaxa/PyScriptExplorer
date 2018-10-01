@@ -35,7 +35,7 @@ namespace ScriptExplorer
             if (LbScriptList.SelectedIndex != -1)
             {
                 string selectedValue = LbScriptList.SelectedItem.ToString();
-                controller.ExecuteScriptAsync();
+                controller.ExecuteScriptAsync(selectedValue);
             }
             else
             {

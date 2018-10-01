@@ -44,10 +44,13 @@
             this.executeScalarWithArgumentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.executeAsyncToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.executeAsyncWithArgumentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.StatusText = new System.Windows.Forms.ToolStripStatusLabel();
             this.TableLayout.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // TableLayout
@@ -58,11 +61,11 @@
             this.TableLayout.Controls.Add(this.panel1, 0, 0);
             this.TableLayout.Controls.Add(this.panel2, 1, 0);
             this.TableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TableLayout.Location = new System.Drawing.Point(0, 42);
+            this.TableLayout.Location = new System.Drawing.Point(0, 40);
             this.TableLayout.Name = "TableLayout";
             this.TableLayout.RowCount = 1;
             this.TableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.TableLayout.Size = new System.Drawing.Size(1319, 751);
+            this.TableLayout.Size = new System.Drawing.Size(1319, 753);
             this.TableLayout.TabIndex = 0;
             // 
             // panel1
@@ -72,7 +75,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(494, 745);
+            this.panel1.Size = new System.Drawing.Size(494, 747);
             this.panel1.TabIndex = 0;
             // 
             // LbScriptList
@@ -84,7 +87,7 @@
             this.LbScriptList.ItemHeight = 25;
             this.LbScriptList.Location = new System.Drawing.Point(0, 0);
             this.LbScriptList.Name = "LbScriptList";
-            this.LbScriptList.Size = new System.Drawing.Size(494, 745);
+            this.LbScriptList.Size = new System.Drawing.Size(494, 747);
             this.LbScriptList.TabIndex = 0;
             this.LbScriptList.DoubleClick += new System.EventHandler(this.LbScriptList_DoubleClick);
             // 
@@ -95,7 +98,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(503, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(813, 745);
+            this.panel2.Size = new System.Drawing.Size(813, 747);
             this.panel2.TabIndex = 1;
             // 
             // RtbContentViewer
@@ -104,7 +107,7 @@
             this.RtbContentViewer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.RtbContentViewer.Location = new System.Drawing.Point(0, 0);
             this.RtbContentViewer.Name = "RtbContentViewer";
-            this.RtbContentViewer.Size = new System.Drawing.Size(813, 745);
+            this.RtbContentViewer.Size = new System.Drawing.Size(813, 747);
             this.RtbContentViewer.TabIndex = 0;
             this.RtbContentViewer.Text = "";
             // 
@@ -116,7 +119,7 @@
             this.executeToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1319, 42);
+            this.menuStrip1.Size = new System.Drawing.Size(1319, 40);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -190,12 +193,31 @@
             this.executeAsyncWithArgumentsToolStripMenuItem.Size = new System.Drawing.Size(441, 38);
             this.executeAsyncWithArgumentsToolStripMenuItem.Text = "Execute Async with &Arguments";
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.StatusText});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 755);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1319, 38);
+            this.statusStrip1.TabIndex = 2;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // StatusText
+            // 
+            this.StatusText.BackColor = System.Drawing.Color.Transparent;
+            this.StatusText.Name = "StatusText";
+            this.StatusText.Size = new System.Drawing.Size(79, 33);
+            this.StatusText.Text = "Ready";
+            // 
             // ScriptExplorerUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1319, 793);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.TableLayout);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -207,6 +229,8 @@
             this.panel2.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -230,6 +254,8 @@
         private System.Windows.Forms.ToolStripMenuItem executeScalarWithArgumentsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem executeAsyncToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem executeAsyncWithArgumentsToolStripMenuItem;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel StatusText;
     }
 }
 
