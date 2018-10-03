@@ -81,6 +81,7 @@
             this.TableLayout.Controls.Add(this.panel1, 0, 0);
             this.TableLayout.Controls.Add(this.panel2, 1, 0);
             this.TableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TableLayout.ForeColor = System.Drawing.SystemColors.WindowText;
             this.TableLayout.Location = new System.Drawing.Point(0, 40);
             this.TableLayout.Name = "TableLayout";
             this.TableLayout.RowCount = 1;
