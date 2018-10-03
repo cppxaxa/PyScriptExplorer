@@ -274,39 +274,30 @@ namespace ScriptExplorer
 
         private void TvBaseInput_MouseMove(object sender, MouseEventArgs e)
         {
-            // Get the node at the current mouse pointer location.  
-            TreeNode theNode = TvBaseInput.GetNodeAt(e.X, e.Y);
-
-            // Set a ToolTip only if the mouse pointer is actually paused on a node.  
-            if (theNode != null && theNode.Tag != null)
-            {
-                // Change the ToolTip only if the pointer moved to a new node.  
-                if (theNode.Tag.ToString() != this.toolTip1.GetToolTip(TvBaseInput))
-                    this.toolTip1.SetToolTip(TvBaseInput, theNode.Tag.ToString());
-
-            }
-            else     // Pointer is not over a node so clear the ToolTip.  
-            {
-                this.toolTip1.SetToolTip(TvBaseInput, "");
-            }
+            CheckAndShowTooltip(TvBaseInput, e);
         }
 
         private void TvBaseOutput_MouseMove(object sender, MouseEventArgs e)
         {
+            CheckAndShowTooltip(TvBaseOutput, e);
+        }
+
+        private void CheckAndShowTooltip(TreeView treeViewWidget, MouseEventArgs e)
+        {
             // Get the node at the current mouse pointer location.  
-            TreeNode theNode = TvBaseOutput.GetNodeAt(e.X, e.Y);
+            TreeNode theNode = treeViewWidget.GetNodeAt(e.X, e.Y);
 
             // Set a ToolTip only if the mouse pointer is actually paused on a node.  
             if (theNode != null && theNode.Tag != null)
             {
                 // Change the ToolTip only if the pointer moved to a new node.  
-                if (theNode.Tag.ToString() != this.toolTip1.GetToolTip(TvBaseOutput))
-                    this.toolTip1.SetToolTip(TvBaseOutput, theNode.Tag.ToString());
+                if (theNode.Tag.ToString() != this.toolTip1.GetToolTip(treeViewWidget))
+                    this.toolTip1.SetToolTip(treeViewWidget, theNode.Tag.ToString());
 
             }
             else     // Pointer is not over a node so clear the ToolTip.  
             {
-                this.toolTip1.SetToolTip(TvBaseOutput, "");
+                this.toolTip1.SetToolTip(treeViewWidget, "");
             }
         }
     }
