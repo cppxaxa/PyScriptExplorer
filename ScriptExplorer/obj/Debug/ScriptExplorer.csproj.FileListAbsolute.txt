@@ -11,3 +11,4 @@ C:\Users\pxaxa\source\repos\ScriptExplorer\ScriptExplorer\obj\Debug\ScriptExplor
 C:\Users\pxaxa\source\repos\ScriptExplorer\bin\Debug\ScriptExplorer.exe.config
 C:\Users\pxaxa\source\repos\ScriptExplorer\bin\Debug\ScriptExplorer.exe
 C:\Users\pxaxa\source\repos\ScriptExplorer\bin\Debug\ScriptExplorer.pdb
+C:\Users\pxaxa\source\repos\ScriptExplorer\ScriptExplorer\obj\Debug\ScriptExplorer.g.resources

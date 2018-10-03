@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ScriptExplorer.ScriptExplorer
 {
@@ -15,9 +16,7 @@ namespace ScriptExplorer.ScriptExplorer
         ConfigurationType configuration;
         List<string> allScriptFiles = new List<string>();
 
-        public string PythonExePath { get { return configuration.PythonExeDirectory; } set { configuration.PythonExeDirectory = value; } }
-
-        public string PythonWExePath { get { return configuration.PythonWExeDirectory; } set { configuration.PythonWExeDirectory = value; } }
+        public ConfigurationType CurrentConfiguration { get { return configuration; } }
 
         public ScriptExplorerController(ConfigurationProvider provider)
         {
@@ -135,6 +134,16 @@ namespace ScriptExplorer.ScriptExplorer
         private string GetPythonFilename(string selectedValue)
         {
             return Path.Combine(configuration.DirectoryPath, selectedValue + ".py");
+        }
+
+        public void SetInputDirectory(string selectedPath)
+        {
+            configuration.BaseInputDirectory = selectedPath;
+        }
+
+        public void SetOutputDirectory(string selectedPath)
+        {
+            configuration.BaseOutputDirectory = selectedPath;
         }
     }
 }

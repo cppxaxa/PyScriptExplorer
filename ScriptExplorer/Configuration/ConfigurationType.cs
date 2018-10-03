@@ -11,5 +11,8 @@ namespace ScriptExplorer.Configuration
         public string DirectoryPath;
         public string PythonExeDirectory;
         public string PythonWExeDirectory;
+
+        public string BaseInputDirectory;
+        public string BaseOutputDirectory;
     }
 }
