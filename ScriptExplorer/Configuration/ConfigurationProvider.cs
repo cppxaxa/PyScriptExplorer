@@ -56,6 +56,30 @@ namespace ScriptExplorer.Configuration
         {
             if (config.DirectoryPath != null && config.DirectoryPath.Trim() == string.Empty)
                 config.DirectoryPath = null;
+            else if (!Directory.Exists(config.DirectoryPath))
+                config.DirectoryPath = null;
+
+            if (config.BaseInputDirectory != null && config.BaseInputDirectory.Trim() == string.Empty)
+                config.BaseInputDirectory = null;
+            else if (!Directory.Exists(config.BaseInputDirectory))
+                config.BaseInputDirectory = null;
+
+            if (config.BaseOutputDirectory != null && config.BaseOutputDirectory.Trim() == string.Empty)
+                config.BaseOutputDirectory = null;
+            else if (!Directory.Exists(config.BaseOutputDirectory))
+                config.BaseOutputDirectory = null;
+
+            if (config.PythonExePath != null && config.PythonExePath.Trim() == string.Empty)
+                config.PythonExePath = null;
+            else if (!File.Exists(config.PythonExePath))
+                config.PythonExePath = null;
+
+            if (config.PythonWExePath != null && config.PythonWExePath.Trim() == string.Empty)
+                config.PythonWExePath = null;
+            else if (!File.Exists(config.PythonWExePath))
+                config.PythonWExePath = null;
+
+
 
             return config;
         }

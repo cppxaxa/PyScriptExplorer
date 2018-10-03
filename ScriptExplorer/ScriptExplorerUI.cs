@@ -46,19 +46,19 @@ namespace ScriptExplorer
             if (controller.CurrentConfiguration.BaseInputDirectory != null)
             {
                 LoadDirectory(TvBaseInput, controller.CurrentConfiguration.BaseInputDirectory);
-                TvBaseInput.Visible = true;
+                if (TvBaseInput.Nodes.Count > 0)
+                {
+                    TvBaseInput.Visible = true;
+                }
             }
 
             if (controller.CurrentConfiguration.BaseOutputDirectory != null)
             {
                 LoadDirectory(TvBaseOutput, controller.CurrentConfiguration.BaseOutputDirectory);
-
-                if (TvBaseOutput.Nodes.Count == 0)
+                if (TvBaseOutput.Nodes.Count > 0)
                 {
-
+                    TvBaseOutput.Visible = true;
                 }
-
-                TvBaseOutput.Visible = true;
             }
         }
 
@@ -87,11 +87,11 @@ namespace ScriptExplorer
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string result = Interaction.InputBox("PythonExe Path", "Set Configuration", controller.CurrentConfiguration.PythonExeDirectory);
+            string result = Interaction.InputBox("PythonExe Path", "Set Configuration", controller.CurrentConfiguration.PythonExePath);
 
             if (result.Trim() != "")
             {
-                controller.CurrentConfiguration.PythonExeDirectory = result;
+                controller.CurrentConfiguration.PythonExePath = result;
             }
         }
 
@@ -102,11 +102,11 @@ namespace ScriptExplorer
 
         private void setPythonWExePathToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string result = Interaction.InputBox("PythonWExe Path", "Set Configuration", controller.CurrentConfiguration.PythonWExeDirectory);
+            string result = Interaction.InputBox("PythonWExe Path", "Set Configuration", controller.CurrentConfiguration.PythonWExePath);
 
             if (result.Trim() != "")
             {
-                controller.CurrentConfiguration.PythonWExeDirectory = result;
+                controller.CurrentConfiguration.PythonWExePath = result;
             }
         }
 

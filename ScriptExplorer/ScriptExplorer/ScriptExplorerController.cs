@@ -31,12 +31,12 @@ namespace ScriptExplorer.ScriptExplorer
         {
             List<string> errorList = new List<string>();
 
-            if (!File.Exists(configuration.PythonExeDirectory))
+            if (!File.Exists(configuration.PythonExePath))
             {
                 errorList.Add("PythonExe path not correct. App can't execute scripts");
             }
 
-            if (!File.Exists(configuration.PythonWExeDirectory))
+            if (!File.Exists(configuration.PythonWExePath))
             {
                 errorList.Add("PythonWExe path not correct. App can't execute non console scripts.");
             }
@@ -94,6 +94,7 @@ namespace ScriptExplorer.ScriptExplorer
         public void ExecuteScriptAsync(string scriptFilename, string arguments = "")
         {
             // Incomplete
+            string scriptPath = GetPythonFilename(scriptFilename);
         }
 
 
