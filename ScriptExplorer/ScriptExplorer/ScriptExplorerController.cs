@@ -16,6 +16,8 @@ namespace ScriptExplorer.ScriptExplorer
         ConfigurationType configuration;
         List<string> allScriptFiles = new List<string>();
 
+        List<Process> processList = new List<Process>();
+
         public ConfigurationType CurrentConfiguration { get { return configuration; } }
 
         public ScriptExplorerController(ConfigurationProvider provider)
@@ -95,8 +97,18 @@ namespace ScriptExplorer.ScriptExplorer
         {
             // Incomplete
             string scriptPath = GetPythonFilename(scriptFilename);
+            string processArguments = "\"" + scriptPath + "\" " + arguments;
+            Console.WriteLine("\"" + configuration.PythonExePath + "\" " + processArguments);
 
-            Console.WriteLine("\"" + configuration.PythonExePath + "\" \"" + scriptPath + "\" " + arguments);
+            Process process = new Process
+            {
+                StartInfo = new ProcessStartInfo(configuration.PythonExePath, processArguments)
+            };
+
+            if (process.Start())
+            {
+                processList.Add(process);
+            }
         }
 
 

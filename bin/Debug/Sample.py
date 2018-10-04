@@ -7,3 +7,6 @@ args = parser.parse_args()
 
 print(str(args.input) + ' ' + str(args.output))
 
+input("Press Enter to continue...")
+
+
