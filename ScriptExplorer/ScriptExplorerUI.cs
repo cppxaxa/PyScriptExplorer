@@ -67,7 +67,20 @@ namespace ScriptExplorer
             if (LbScriptList.SelectedIndex != -1)
             {
                 string selectedValue = LbScriptList.SelectedItem.ToString();
-                controller.ExecuteScriptAsync(selectedValue);
+
+                string inputPath = "";
+                string outputPath = "";
+
+                inputPath = TvBaseInput.SelectedNode?.Tag.ToString();
+                outputPath = TvBaseOutput.SelectedNode?.Tag.ToString();
+
+                if (inputPath == null || inputPath.Trim() == "")
+                    throw new FormatException("Input path not selected");
+
+                if (outputPath == null || outputPath.Trim() == "")
+                    throw new FormatException("Output path not selected");
+
+                controller.ExecuteScriptAsync(selectedValue, "\"" + inputPath + "\" --output \"" + outputPath + "\"");
             }
             else
             {

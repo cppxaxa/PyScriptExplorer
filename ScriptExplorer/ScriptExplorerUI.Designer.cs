@@ -84,8 +84,9 @@
             this.TableLayout.ForeColor = System.Drawing.SystemColors.WindowText;
             this.TableLayout.Location = new System.Drawing.Point(0, 40);
             this.TableLayout.Name = "TableLayout";
-            this.TableLayout.RowCount = 1;
+            this.TableLayout.RowCount = 2;
             this.TableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.TableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
             this.TableLayout.Size = new System.Drawing.Size(1970, 1085);
             this.TableLayout.TabIndex = 0;
             // 
@@ -98,9 +99,10 @@
             this.RtbContentViewer.Location = new System.Drawing.Point(1306, 4);
             this.RtbContentViewer.Name = "RtbContentViewer";
             this.RtbContentViewer.ReadOnly = true;
-            this.RtbContentViewer.Size = new System.Drawing.Size(664, 1077);
+            this.RtbContentViewer.Size = new System.Drawing.Size(664, 1038);
             this.RtbContentViewer.TabIndex = 0;
             this.RtbContentViewer.Text = "";
+            this.RtbContentViewer.WordWrap = false;
             // 
             // panel1
             // 
@@ -109,7 +111,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(494, 1077);
+            this.panel1.Size = new System.Drawing.Size(494, 1038);
             this.panel1.TabIndex = 0;
             // 
             // LbScriptList
@@ -122,7 +124,7 @@
             this.LbScriptList.ItemHeight = 33;
             this.LbScriptList.Location = new System.Drawing.Point(0, 0);
             this.LbScriptList.Name = "LbScriptList";
-            this.LbScriptList.Size = new System.Drawing.Size(494, 1077);
+            this.LbScriptList.Size = new System.Drawing.Size(494, 1038);
             this.LbScriptList.TabIndex = 0;
             this.LbScriptList.SelectedIndexChanged += new System.EventHandler(this.LbScriptList_SelectedIndexChanged);
             this.LbScriptList.DoubleClick += new System.EventHandler(this.LbScriptList_DoubleClick);
@@ -134,7 +136,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(505, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(794, 1077);
+            this.panel2.Size = new System.Drawing.Size(794, 1038);
             this.panel2.TabIndex = 1;
             // 
             // tableLayoutPanel1
@@ -152,7 +154,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 3F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(794, 1077);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(794, 1038);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // TvInputPanel
@@ -162,7 +164,7 @@
             this.TvInputPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TvInputPanel.Location = new System.Drawing.Point(4, 4);
             this.TvInputPanel.Name = "TvInputPanel";
-            this.TvInputPanel.Size = new System.Drawing.Size(786, 529);
+            this.TvInputPanel.Size = new System.Drawing.Size(786, 509);
             this.TvInputPanel.TabIndex = 0;
             this.TvInputPanel.DoubleClick += new System.EventHandler(this.TvInputPanel_DoubleClick);
             // 
@@ -171,9 +173,10 @@
             this.TvBaseInput.BackColor = System.Drawing.SystemColors.Window;
             this.TvBaseInput.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TvBaseInput.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TvBaseInput.HideSelection = false;
             this.TvBaseInput.Location = new System.Drawing.Point(0, 0);
             this.TvBaseInput.Name = "TvBaseInput";
-            this.TvBaseInput.Size = new System.Drawing.Size(786, 529);
+            this.TvBaseInput.Size = new System.Drawing.Size(786, 509);
             this.TvBaseInput.TabIndex = 0;
             this.TvBaseInput.Visible = false;
             this.TvBaseInput.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TvBaseInput_MouseMove);
@@ -183,9 +186,9 @@
             this.TvOutputPanel.BackColor = System.Drawing.Color.White;
             this.TvOutputPanel.Controls.Add(this.TvBaseOutput);
             this.TvOutputPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TvOutputPanel.Location = new System.Drawing.Point(4, 544);
+            this.TvOutputPanel.Location = new System.Drawing.Point(4, 524);
             this.TvOutputPanel.Name = "TvOutputPanel";
-            this.TvOutputPanel.Size = new System.Drawing.Size(786, 529);
+            this.TvOutputPanel.Size = new System.Drawing.Size(786, 510);
             this.TvOutputPanel.TabIndex = 1;
             this.TvOutputPanel.DoubleClick += new System.EventHandler(this.TvOutputPanel_DoubleClick);
             // 
@@ -193,9 +196,10 @@
             // 
             this.TvBaseOutput.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TvBaseOutput.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TvBaseOutput.HideSelection = false;
             this.TvBaseOutput.Location = new System.Drawing.Point(0, 0);
             this.TvBaseOutput.Name = "TvBaseOutput";
-            this.TvBaseOutput.Size = new System.Drawing.Size(786, 529);
+            this.TvBaseOutput.Size = new System.Drawing.Size(786, 510);
             this.TvBaseOutput.TabIndex = 0;
             this.TvBaseOutput.Visible = false;
             this.TvBaseOutput.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TvBaseOutput_MouseMove);

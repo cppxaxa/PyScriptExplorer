@@ -95,6 +95,8 @@ namespace ScriptExplorer.ScriptExplorer
         {
             // Incomplete
             string scriptPath = GetPythonFilename(scriptFilename);
+
+            Console.WriteLine("\"" + configuration.PythonExePath + "\" \"" + scriptPath + "\" " + arguments);
         }
 
 
