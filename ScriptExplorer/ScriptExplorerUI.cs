@@ -75,10 +75,16 @@ namespace ScriptExplorer
                 outputPath = TvBaseOutput.SelectedNode?.Tag.ToString();
 
                 if (inputPath == null || inputPath.Trim() == "")
-                    throw new FormatException("Input path not selected");
+                {
+                    MessageBox.Show("Input path not selected");
+                    return;
+                }
 
                 if (outputPath == null || outputPath.Trim() == "")
-                    throw new FormatException("Output path not selected");
+                {
+                    MessageBox.Show("Output path not selected");
+                    return;
+                }
 
                 controller.ExecuteScriptAsync(selectedValue, "\"" + inputPath + "\" --output \"" + outputPath + "\"");
             }
@@ -90,11 +96,11 @@ namespace ScriptExplorer
 
         private void openDirectoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FolderBrowserDialog dialog = new FolderBrowserDialog();
+            string result = Interaction.InputBox("Workspace Path", "Set Configuration", controller.CurrentConfiguration.DirectoryPath);
 
-            if (dialog.ShowDialog() == DialogResult.OK)
+            if (result.Trim() != "")
             {
-                controller.SetNewDirectory(dialog.SelectedPath);
+                controller.SetNewDirectory(result);
             }
         }
 

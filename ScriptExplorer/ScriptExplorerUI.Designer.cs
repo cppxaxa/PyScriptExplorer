@@ -82,12 +82,12 @@
             this.TableLayout.Controls.Add(this.panel2, 1, 0);
             this.TableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TableLayout.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.TableLayout.Location = new System.Drawing.Point(0, 40);
+            this.TableLayout.Location = new System.Drawing.Point(0, 42);
             this.TableLayout.Name = "TableLayout";
             this.TableLayout.RowCount = 2;
             this.TableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.TableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
-            this.TableLayout.Size = new System.Drawing.Size(1970, 1085);
+            this.TableLayout.Size = new System.Drawing.Size(1970, 1083);
             this.TableLayout.TabIndex = 0;
             // 
             // RtbContentViewer
@@ -99,7 +99,7 @@
             this.RtbContentViewer.Location = new System.Drawing.Point(1306, 4);
             this.RtbContentViewer.Name = "RtbContentViewer";
             this.RtbContentViewer.ReadOnly = true;
-            this.RtbContentViewer.Size = new System.Drawing.Size(664, 1038);
+            this.RtbContentViewer.Size = new System.Drawing.Size(664, 1036);
             this.RtbContentViewer.TabIndex = 0;
             this.RtbContentViewer.Text = "";
             this.RtbContentViewer.WordWrap = false;
@@ -111,7 +111,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(494, 1038);
+            this.panel1.Size = new System.Drawing.Size(494, 1036);
             this.panel1.TabIndex = 0;
             // 
             // LbScriptList
@@ -124,7 +124,7 @@
             this.LbScriptList.ItemHeight = 33;
             this.LbScriptList.Location = new System.Drawing.Point(0, 0);
             this.LbScriptList.Name = "LbScriptList";
-            this.LbScriptList.Size = new System.Drawing.Size(494, 1038);
+            this.LbScriptList.Size = new System.Drawing.Size(494, 1036);
             this.LbScriptList.TabIndex = 0;
             this.LbScriptList.SelectedIndexChanged += new System.EventHandler(this.LbScriptList_SelectedIndexChanged);
             this.LbScriptList.DoubleClick += new System.EventHandler(this.LbScriptList_DoubleClick);
@@ -136,7 +136,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(505, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(794, 1038);
+            this.panel2.Size = new System.Drawing.Size(794, 1036);
             this.panel2.TabIndex = 1;
             // 
             // tableLayoutPanel1
@@ -154,7 +154,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 3F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(794, 1038);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(794, 1036);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // TvInputPanel
@@ -164,7 +164,7 @@
             this.TvInputPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TvInputPanel.Location = new System.Drawing.Point(4, 4);
             this.TvInputPanel.Name = "TvInputPanel";
-            this.TvInputPanel.Size = new System.Drawing.Size(786, 509);
+            this.TvInputPanel.Size = new System.Drawing.Size(786, 508);
             this.TvInputPanel.TabIndex = 0;
             this.TvInputPanel.DoubleClick += new System.EventHandler(this.TvInputPanel_DoubleClick);
             // 
@@ -176,7 +176,7 @@
             this.TvBaseInput.HideSelection = false;
             this.TvBaseInput.Location = new System.Drawing.Point(0, 0);
             this.TvBaseInput.Name = "TvBaseInput";
-            this.TvBaseInput.Size = new System.Drawing.Size(786, 509);
+            this.TvBaseInput.Size = new System.Drawing.Size(786, 508);
             this.TvBaseInput.TabIndex = 0;
             this.TvBaseInput.Visible = false;
             this.TvBaseInput.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TvBaseInput_MouseMove);
@@ -186,9 +186,9 @@
             this.TvOutputPanel.BackColor = System.Drawing.Color.White;
             this.TvOutputPanel.Controls.Add(this.TvBaseOutput);
             this.TvOutputPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TvOutputPanel.Location = new System.Drawing.Point(4, 524);
+            this.TvOutputPanel.Location = new System.Drawing.Point(4, 523);
             this.TvOutputPanel.Name = "TvOutputPanel";
-            this.TvOutputPanel.Size = new System.Drawing.Size(786, 510);
+            this.TvOutputPanel.Size = new System.Drawing.Size(786, 509);
             this.TvOutputPanel.TabIndex = 1;
             this.TvOutputPanel.DoubleClick += new System.EventHandler(this.TvOutputPanel_DoubleClick);
             // 
@@ -199,7 +199,7 @@
             this.TvBaseOutput.HideSelection = false;
             this.TvBaseOutput.Location = new System.Drawing.Point(0, 0);
             this.TvBaseOutput.Name = "TvBaseOutput";
-            this.TvBaseOutput.Size = new System.Drawing.Size(786, 510);
+            this.TvBaseOutput.Size = new System.Drawing.Size(786, 509);
             this.TvBaseOutput.TabIndex = 0;
             this.TvBaseOutput.Visible = false;
             this.TvBaseOutput.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TvBaseOutput_MouseMove);
@@ -213,7 +213,7 @@
             this.clearToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1970, 40);
+            this.menuStrip1.Size = new System.Drawing.Size(1970, 42);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -224,7 +224,7 @@
             this.exitToolStripMenuItem,
             this.setPythonWExePathToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(64, 36);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(64, 38);
             this.fileToolStripMenuItem.Text = "&File";
             // 
             // openDirectoryToolStripMenuItem
@@ -258,7 +258,7 @@
             this.executeAsyncToolStripMenuItem,
             this.executeAsyncWithArgumentsToolStripMenuItem});
             this.executeToolStripMenuItem.Name = "executeToolStripMenuItem";
-            this.executeToolStripMenuItem.Size = new System.Drawing.Size(69, 36);
+            this.executeToolStripMenuItem.Size = new System.Drawing.Size(69, 38);
             this.executeToolStripMenuItem.Text = "&Run";
             // 
             // executeToolStripMenuItem1
@@ -307,7 +307,7 @@
             this.addDirectoryToInputTreeToolStripMenuItem,
             this.addDirectoryToOutputTreeToolStripMenuItem});
             this.clearToolStripMenuItem.Name = "clearToolStripMenuItem";
-            this.clearToolStripMenuItem.Size = new System.Drawing.Size(78, 36);
+            this.clearToolStripMenuItem.Size = new System.Drawing.Size(78, 38);
             this.clearToolStripMenuItem.Text = "&View";
             // 
             // clearInputTreeToolStripMenuItem
