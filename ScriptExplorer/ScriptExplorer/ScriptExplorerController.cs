@@ -160,5 +160,34 @@ namespace ScriptExplorer.ScriptExplorer
         {
             configuration.BaseOutputDirectory = selectedPath;
         }
+
+        public void OpenFileExplorer(string path)
+        {
+            if (configuration.FileExplorerPath == null)
+            {
+                MessageBox.Show("File explorer path not set");
+                return;
+            }
+
+            string directoryToExplore = path;
+
+            if (!Directory.Exists(directoryToExplore))
+            {
+                directoryToExplore = Path.GetDirectoryName(directoryToExplore);
+            }
+
+            Console.WriteLine(configuration.FileExplorerPath + " " + directoryToExplore);
+
+            Process explorer = new Process
+            {
+                StartInfo = new ProcessStartInfo(configuration.FileExplorerPath, directoryToExplore)
+            };
+
+            if (!explorer.Start())
+            {
+                MessageBox.Show("Failed to start explorer, " + configuration.FileExplorerPath + " with " + directoryToExplore);
+            }
+            
+        }
     }
 }

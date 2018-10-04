@@ -59,6 +59,10 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.StatusText = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CmsTvGeneric = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.MiOpenInExplorer = new System.Windows.Forms.ToolStripMenuItem();
+            this.setFileExplorerPathToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TableLayout.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -67,6 +71,7 @@
             this.TvOutputPanel.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            this.CmsTvGeneric.SuspendLayout();
             this.SuspendLayout();
             // 
             // TableLayout
@@ -180,6 +185,7 @@
             this.TvBaseInput.TabIndex = 0;
             this.TvBaseInput.Visible = false;
             this.TvBaseInput.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TvBaseInput_MouseMove);
+            this.TvBaseInput.MouseUp += new System.Windows.Forms.MouseEventHandler(this.TvBaseInput_MouseUp);
             // 
             // TvOutputPanel
             // 
@@ -203,6 +209,7 @@
             this.TvBaseOutput.TabIndex = 0;
             this.TvBaseOutput.Visible = false;
             this.TvBaseOutput.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TvBaseOutput_MouseMove);
+            this.TvBaseOutput.MouseUp += new System.Windows.Forms.MouseEventHandler(this.TvBaseOutput_MouseUp);
             // 
             // menuStrip1
             // 
@@ -210,7 +217,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.executeToolStripMenuItem,
-            this.clearToolStripMenuItem});
+            this.clearToolStripMenuItem,
+            this.refreshToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1970, 42);
@@ -222,7 +230,8 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openDirectoryToolStripMenuItem,
             this.exitToolStripMenuItem,
-            this.setPythonWExePathToolStripMenuItem});
+            this.setPythonWExePathToolStripMenuItem,
+            this.setFileExplorerPathToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(64, 38);
             this.fileToolStripMenuItem.Text = "&File";
@@ -258,7 +267,7 @@
             this.executeAsyncToolStripMenuItem,
             this.executeAsyncWithArgumentsToolStripMenuItem});
             this.executeToolStripMenuItem.Name = "executeToolStripMenuItem";
-            this.executeToolStripMenuItem.Size = new System.Drawing.Size(69, 38);
+            this.executeToolStripMenuItem.Size = new System.Drawing.Size(69, 36);
             this.executeToolStripMenuItem.Text = "&Run";
             // 
             // executeToolStripMenuItem1
@@ -307,7 +316,7 @@
             this.addDirectoryToInputTreeToolStripMenuItem,
             this.addDirectoryToOutputTreeToolStripMenuItem});
             this.clearToolStripMenuItem.Name = "clearToolStripMenuItem";
-            this.clearToolStripMenuItem.Size = new System.Drawing.Size(78, 38);
+            this.clearToolStripMenuItem.Size = new System.Drawing.Size(78, 36);
             this.clearToolStripMenuItem.Text = "&View";
             // 
             // clearInputTreeToolStripMenuItem
@@ -356,6 +365,35 @@
             this.StatusText.Size = new System.Drawing.Size(79, 32);
             this.StatusText.Text = "Ready";
             // 
+            // refreshToolStripMenuItem
+            // 
+            this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
+            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(106, 36);
+            this.refreshToolStripMenuItem.Text = "Re&fresh";
+            this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
+            // 
+            // CmsTvGeneric
+            // 
+            this.CmsTvGeneric.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.CmsTvGeneric.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MiOpenInExplorer});
+            this.CmsTvGeneric.Name = "CmsTvGeneric";
+            this.CmsTvGeneric.Size = new System.Drawing.Size(270, 40);
+            // 
+            // MiOpenInExplorer
+            // 
+            this.MiOpenInExplorer.Name = "MiOpenInExplorer";
+            this.MiOpenInExplorer.Size = new System.Drawing.Size(269, 36);
+            this.MiOpenInExplorer.Text = "Open in Explorer";
+            this.MiOpenInExplorer.Click += new System.EventHandler(this.MiOpenInExplorer_Click);
+            // 
+            // setFileExplorerPathToolStripMenuItem
+            // 
+            this.setFileExplorerPathToolStripMenuItem.Name = "setFileExplorerPathToolStripMenuItem";
+            this.setFileExplorerPathToolStripMenuItem.Size = new System.Drawing.Size(341, 38);
+            this.setFileExplorerPathToolStripMenuItem.Text = "Set FileExplorer Path";
+            this.setFileExplorerPathToolStripMenuItem.Click += new System.EventHandler(this.setFileExplorerPathToolStripMenuItem_Click);
+            // 
             // ScriptExplorerUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -380,6 +418,7 @@
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.CmsTvGeneric.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -417,6 +456,10 @@
         private System.Windows.Forms.ToolStripMenuItem clearOutputTreeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addDirectoryToInputTreeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addDirectoryToOutputTreeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip CmsTvGeneric;
+        private System.Windows.Forms.ToolStripMenuItem MiOpenInExplorer;
+        private System.Windows.Forms.ToolStripMenuItem setFileExplorerPathToolStripMenuItem;
     }
 }
 

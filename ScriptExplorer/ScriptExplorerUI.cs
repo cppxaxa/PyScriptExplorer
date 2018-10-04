@@ -101,6 +101,7 @@ namespace ScriptExplorer
             if (result.Trim() != "")
             {
                 controller.SetNewDirectory(result);
+                LbScriptList.DataSource = controller.GetScriptNames();
             }
         }
 
@@ -195,11 +196,13 @@ namespace ScriptExplorer
         private void clearInputTreeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TvBaseInput.Nodes.Clear();
+            TvBaseInput.Visible = false;
         }
 
         private void clearOutputTreeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TvBaseOutput.Nodes.Clear();
+            TvBaseOutput.Visible = false;
         }
 
         private void addDirectoryToInputTreeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -263,17 +266,25 @@ namespace ScriptExplorer
         {
             // Get all subdirectories  
             string[] subdirectoryEntries = Directory.GetDirectories(dir);
-            // Loop through them to see if they have any other subdirectories  
-            foreach (string subdirectory in subdirectoryEntries)
+            // Loop through them to see if they have any other subdirectories 
+
+            if (subdirectoryEntries.Length < 200)
             {
-
-                DirectoryInfo di = new DirectoryInfo(subdirectory);
-                TreeNode tds = td.Nodes.Add(di.Name);
+                foreach (string subdirectory in subdirectoryEntries)
+                {
+                    DirectoryInfo di = new DirectoryInfo(subdirectory);
+                    TreeNode tds = td.Nodes.Add(di.Name);
+                    tds.StateImageIndex = 0;
+                    tds.Tag = di.FullName;
+                    LoadFiles(subdirectory, tds);
+                    LoadSubDirectories(subdirectory, tds);
+                }
+            }
+            else
+            {
+                TreeNode tds = td.Nodes.Add("<Folders more than 200> ...");
                 tds.StateImageIndex = 0;
-                tds.Tag = di.FullName;
-                LoadFiles(subdirectory, tds);
-                LoadSubDirectories(subdirectory, tds);
-
+                tds.Tag = dir;
             }
         }
 
@@ -281,12 +292,21 @@ namespace ScriptExplorer
         {
             string[] Files = Directory.GetFiles(dir, "*.*");
 
-            // Loop through them to see files  
-            foreach (string file in Files)
+            if (Files.Length < 200)
             {
-                FileInfo fi = new FileInfo(file);
-                TreeNode tds = td.Nodes.Add(fi.Name);
-                tds.Tag = fi.FullName;
+                // Loop through them to see files  
+                foreach (string file in Files)
+                {
+                    FileInfo fi = new FileInfo(file);
+                    TreeNode tds = td.Nodes.Add(fi.Name);
+                    tds.Tag = fi.FullName;
+                    tds.StateImageIndex = 1;
+                }
+            }
+            else
+            {
+                TreeNode tds = td.Nodes.Add("<Files more than 200> ...");
+                tds.Tag = dir;
                 tds.StateImageIndex = 1;
             }
         }
@@ -317,6 +337,83 @@ namespace ScriptExplorer
             else     // Pointer is not over a node so clear the ToolTip.  
             {
                 this.toolTip1.SetToolTip(treeViewWidget, "");
+            }
+        }
+
+        private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LbScriptList.DataSource = controller.GetScriptNames();
+
+            TvBaseInput.Nodes.Clear();
+            TvBaseInput.Visible = false;
+
+            TvBaseOutput.Nodes.Clear();
+            TvBaseOutput.Visible = false;
+
+            if (controller.CurrentConfiguration.BaseInputDirectory != null)
+            {
+                LoadDirectory(TvBaseInput, controller.CurrentConfiguration.BaseInputDirectory);
+                if (TvBaseInput.Nodes.Count > 0)
+                {
+                    TvBaseInput.Visible = true;
+                }
+            }
+
+            if (controller.CurrentConfiguration.BaseOutputDirectory != null)
+            {
+                LoadDirectory(TvBaseOutput, controller.CurrentConfiguration.BaseOutputDirectory);
+                if (TvBaseOutput.Nodes.Count > 0)
+                {
+                    TvBaseOutput.Visible = true;
+                }
+            }
+        }
+
+        private void TvBaseInput_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                Point p = new Point(e.X, e.Y);
+
+                TreeNode node = TvBaseInput.GetNodeAt(p);
+                activeMiTvNode = node;
+                if (node != null)
+                {
+                    TvBaseInput.SelectedNode = node;
+                    CmsTvGeneric.Show(TvBaseInput, p);
+                }
+            }
+        }
+
+        private void TvBaseOutput_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                Point p = new Point(e.X, e.Y);
+
+                TreeNode node = TvBaseOutput.GetNodeAt(p);
+                activeMiTvNode = node;
+                if (node != null)
+                {
+                    TvBaseOutput.SelectedNode = node;
+                    CmsTvGeneric.Show(TvBaseOutput, p);
+                }
+            }
+        }
+
+        private TreeNode activeMiTvNode = null;
+        private void MiOpenInExplorer_Click(object sender, EventArgs e)
+        {
+            controller.OpenFileExplorer(activeMiTvNode.Tag as string);
+        }
+
+        private void setFileExplorerPathToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string result = Interaction.InputBox("FileExplorer Path", "Set Configuration", controller.CurrentConfiguration.FileExplorerPath);
+
+            if (result.Trim() != "")
+            {
+                controller.CurrentConfiguration.FileExplorerPath = result;
             }
         }
     }

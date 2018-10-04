@@ -30,6 +30,18 @@ namespace ScriptExplorer.Configuration
                 DirectoryPath = null
             };
 
+            int p = (int)Environment.OSVersion.Platform;
+            if ((p == 4) || (p == 6) || (p == 128))
+            {
+                // Unix
+                config.FileExplorerPath = "nautilus";
+            }
+            else
+            {
+                // Non-unix
+                config.FileExplorerPath = @"C:\Windows\explorer.exe";
+            }
+
             return config;
         }
 

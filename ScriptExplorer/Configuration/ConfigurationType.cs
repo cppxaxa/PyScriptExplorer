@@ -14,5 +14,7 @@ namespace ScriptExplorer.Configuration
 
         public string BaseInputDirectory;
         public string BaseOutputDirectory;
+
+        public string FileExplorerPath;
     }
 }
